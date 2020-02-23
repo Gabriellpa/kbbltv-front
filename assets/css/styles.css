@@ -28,12 +28,11 @@ body {
 }
 
 .right-bar a:hover {
-    color: #9728af;
     cursor: pointer;
 }
 
 .right-bar a.active {
-    color: #9728af;
+    color: #9728af !important;
 }
 
 .bar {

@@ -201,11 +201,21 @@ var volumesId = [
     'volume-100'
 ];
 
-for(var i = 0; i < volumesId.length;i++) {
+var volumesIndex = {
+    'volume-10':0,
+    'volume-30':1,
+    'volume-50':2,
+    'volume-70':3,
+    'volume-90':4,
+    'volume-100':5
+};
+
+for(var i = 0; i < volumesId.length ;i++) {
     var volumeBtn = document.getElementById(volumesId[i]);
-    volumeBtn.addEventListener('mouseover', function() {
+    volumeBtn.addEventListener('mouseover', function(event) {
         console.log("mouseover")
-        for(var z = 0; z < volumesId.length;z++) {
+        i = volumesIndex[event.target.id];
+        for(var z = 0; z < volumesId.length ;z++) {
             if(i >= z) {
                 var volumeBtnToActive = document.getElementById(volumesId[z]);
                 volumeBtnToActive.classList.add("active");
@@ -226,10 +236,10 @@ for(var i = 0; i < volumesId.length;i++) {
 colorizeActiveVolume = function() {
     if(!kbbltv.muted) {
         var volumeString = 'volume-'+kbbltv.volume;
-        for(var i = 0; i < volumesId.length;i++) {
+        for(var i = 0; i < volumesId.length; i++) {
             if(volumeString === volumesId[i]) {
                 console.log('tira o active');
-                for(var z = 0; z < volumesId.length;z++) {
+                for(var z = 0; z < volumesId.length ;z++) {
                     if(i >= z) {
                         var volumeBtnToActive = document.getElementById(volumesId[z]);
                         volumeBtnToActive.classList.add("active");
